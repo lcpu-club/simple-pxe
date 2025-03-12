@@ -1,25 +1,23 @@
-PXE_PREPARE=(archlinux ubuntu debian rocky fedora freebsd netbsd clonezilla gparted memtest)
+PXE_PREPARE=(archlinux ubuntu debian rocky fedora memtest)
 PXE_MENUS=(
-    "-Distros" archlinux ubuntu debian rocky fedora freebsd netbsd
-    "-Utilities" clonezilla gparted tool reboot)
+    "-Distros" archlinux ubuntu debian rocky fedora
+    "-Utilities" tool reboot)
 
 PXE_LOCAL_ROOT=/srv/pxe
 PXE_HTTP_ROOT=http://10.123.123.1/pxe
-PXE_NFS_HOST=10.123.123.1
-PXE_NFS_ROOT=/srv/pxe
+#PXE_NFS_HOST=10.123.123.1
+#PXE_NFS_ROOT=/srv/pxe
 
-PXE_TITLE="USTC Network Boot Service (http://pxe.ustc.edu.cn/)"
+PXE_TITLE="LCPU Network Boot Service (http://pxe.lcpu.dev/)"
 PXE_INTRO="
-== USTC Network Boot Service ==
+== LCPU Network Boot Service ==
 
-Website: http://pxe.ustc.edu.cn/
+Website: http://pxe.lcpu.dev/
 
-This is the USTC Network Boot Service provided by:
-- Linux User Group (https://lug.ustc.edu.cn/)
-- Network and Information Center (https://ustcnet.ustc.edu.cn/)
-- Library (https://lib.ustc.edu.cn)
+This is the LCPU Network Boot Service provided by:
+- Linux Club of Peking University(https://lcpu.dev/)
 
 If you get here by mistake, please reboot, check the BIOS/UEFI firmware
 settings and disable network boot.
 
-If you need help, please contact lug@ustc.edu.cn."
+If you need help, please contact linuxclub@pku.edu.cn"

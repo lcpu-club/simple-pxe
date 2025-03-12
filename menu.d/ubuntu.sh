@@ -8,9 +8,6 @@ cd "${LOCAL_PATH}" || exit 1
 grub_option SP_UBUNTU_ARCH Architecture \
 	amd64 amd64 "For most modern PCs" \
 	i386  i386  "For very old PCs"
-grub_option SP_UBUNTU_ROOTFS "LiveCD RootFS" \
-	toram ToRAM "Copy RootFS to RAM" \
-	""    NFS   "Mount RootFS via NFS"
 
 IFS=' ' read -r -a mirrors <<< "${UBUNTU_MIRROR_BACKUP}"
 grub_mirror_selector SP_UBUNTU_MIRROR "${UBUNTU_MIRROR}" "${mirrors[@]}"
@@ -30,7 +27,7 @@ while read -r folder; do
 		"Ubuntu ${version} (${codename}) ${variant} LiveCD" \
 		"${GRUB_PATH}/${kernels[0]}" \
 		"${GRUB_PATH}/${initrds[0]}" \
-		"boot=casper ip=dhcp netboot=nfs nfsroot=${PXE_NFS_HOST}:${NFS_PATH}/${folder} locale=zh_CN \${SP_UBUNTU_ROOTFS}"
+		"boot=casper ip=dhcp locale=zh_CN toram"
 	echo "fi"
 done < <(ls | sort -t_ -k2,2r -k3)
 
